@@ -3,8 +3,9 @@
 <html>
 <head>
     @{
-        var totalMessage = "Wait...";
-        var n = 100000;
+        var totalMessage = "";
+        var flag = false;
+        var n = 10000;
         float[] val = new float[n + 1];
         float[] arg = new float[n + 1];
         arg[0] = 0;
@@ -14,6 +15,7 @@
         var x0 = "";
         if (IsPost)
         {
+            totalMessage = "Wait..."
             x0 = Request["x0"];
             num1 = Request["text1"];
             num2 = Request["text2"];
@@ -25,7 +27,8 @@
                 arg[i + 1] = arg[i] + step;
                 val[i + 1] = val[i] + (num1.AsFloat() * step * i + num2.AsFloat() * val[i]) * step;
             }
-            totalMessage = "Successfully!";
+            totalMessage = "Successfully! Drawing a graph";
+            //flag = true;
         }
 
     }
@@ -64,7 +67,7 @@
         google.setOnLoadCallback(drawChart);
 
         function drawChart() {
-            if ('@totalMessage' == "Successfully!") {
+            if ('@totalMessage' == "Successfully! Drawing a graph") {
                 var N = '@n';
                 var x0 = '@x0';
                 var x1 = '@r2';
@@ -91,7 +94,7 @@
                 };
 
                 var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
-
+                '@totalMessage' = "Completed!";
                 chart.draw(data, options);
             }
         }
