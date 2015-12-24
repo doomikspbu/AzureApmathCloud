@@ -4,13 +4,15 @@
 <head>
     @{
         var totalMessage = "";
+        var n = 100000;
+        var num1, num2, r2, x0;
         if (IsPost)
         {
-            var x0 = Request["x0"];
-            var num1 = Request["text1"];
-            var num2 = Request["text2"];
-            var r2 = Request["x1"];
-            var n = 100000;
+            x0 = Request["x0"];
+            num1 = Request["text1"];
+            num2 = Request["text2"];
+            r2 = Request["x1"];
+            
             int step = (r2.AsInt() - x0.AsInt()) / n;
             int[] val = new int[n + 1];
             val[0] = x0.AsInt();
@@ -35,15 +37,13 @@
         google.setOnLoadCallback(drawChart);
 
         function drawChart() {
-            
-            var x0 = '@x0';
-            var x1 = '@r1';
+            var N = '@n'
             var data = google.visualization.arrayToDataTable([
               ['Year', 'Sales', 'Expenses'],
-              [x0, 1000, 400],
+              [N, 1000, 400],
               ['2005', 1170, 460],
               ['2006', 660, 1120],
-              [x1, 1030, 540]
+              [N, 1030, 540]
             ]);
 
             var options = {
