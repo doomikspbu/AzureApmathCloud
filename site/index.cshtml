@@ -75,14 +75,15 @@
             @for (int i = 0; i<@n; ++i)
             {
                 @:Args.push('@arg[i]');
-            }
+                @:Vals.push('@val[i]');
+                        }
+            var tab = [];
+            tab.push(['X', 'Y']);
             N = Args.length;
+            for (i = 0; i < N; ++i)
+                tap.push([Args[i], Vals[i]]);
             var data = google.visualization.arrayToDataTable([
-              ['Year', 'Sales', 'Expenses'],
-              [N, 1000, 400],
-              ['2005', 1170, 460],
-              ['2006', 660, 1120],
-              [N, 1030, 540]
+              tab
             ]);
 
             var options = {
