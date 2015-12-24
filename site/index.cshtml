@@ -82,9 +82,7 @@
             N = Args.length;
             for (i = 0; i < N; ++i)
                 tap.push([Args[i], Vals[i]]);
-            var data = google.visualization.arrayToDataTable([
-              tab
-            ]);
+            var data = google.visualization.arrayToDataTable(tab);
 
             var options = {
                 title: 'Solution',
