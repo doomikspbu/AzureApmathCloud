@@ -6,7 +6,7 @@
         var num1 = Request["text1"];
         var num2 = Request["text2"];
         var r2 = Request["x1"];
-        int n = 100000;
+        var n = 100000;
         int step = (r2.AsInt() - x0.AsInt())/n;
         int[] val = new int[n + 1];
         val[0] = x0.AsInt();
@@ -34,12 +34,15 @@
         google.setOnLoadCallback(drawChart);
 
         function drawChart() {
+            var N = (Number)@n;
+            var x0 = (String)@x0;
+            var x1 = (String)@r1;
             var data = google.visualization.arrayToDataTable([
               ['Year', 'Sales', 'Expenses'],
-              ['2004', 1000, 400],
+              [x0, 1000, 400],
               ['2005', 1170, 460],
               ['2006', 660, 1120],
-              ['2007', 1030, 540]
+              [x1, 1030, 540]
             ]);
 
             var options = {
