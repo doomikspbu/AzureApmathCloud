@@ -37,7 +37,7 @@
 <body background="http://www.mindblowingpicture.com/wp_highres/textures/WPPZNE38.jpg">
     <form action="" method="post">
         <p>
-        <p>Solve ODE y'=k1*x + k2*y, y(0). Range [0, b]) </p>
+        <p>Solve ODE y'=k1*x + k2*y, y(0). Range = [0, b] </p>
         <label for="text1">k1:</label>
         <input type="text" name="text1">
 
@@ -73,10 +73,10 @@
                     var Vals = [];
                     var i;
                     @for (int i = 0; i<@n; ++i)
-                {
-                    @:Args.push('@arg[i]');
-                                                            @:Vals.push('@val[i]');
-                                                        }
+                    {
+                        @:Args.push('@arg[i]');
+                        @:Vals.push('@val[i]');
+                    }
                     var tab = [];
                     tab.push(['X', 'Y']);
                     N = Args.length;
