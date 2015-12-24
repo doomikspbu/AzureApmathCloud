@@ -29,8 +29,30 @@
         }
 
     }
-    <script type="text/javascript"
-            src="https://www.google.com/jsapi?autoload={
+    
+</head>
+<body>
+    <form action="" method="post">
+        <p>
+            <label for="text1">k1:</label><br>
+            <input type="text" name="text1">
+        </p>
+        <p>
+            <label for="text2">k2:</label><br>
+            <input type="text" name="text2">
+        </p>
+        <p>
+            <label for="text2">x(0):</label><br>
+            <input type="text" name="x0">
+        </p>
+        <p>
+            <label for="text2">b:</label><br>
+            <input type="text" name="x1">
+        </p>
+        <p><input type="submit" value="Compute"></p>
+        <p>@totalMessage</p>
+        <script type="text/javascript"
+                src="https://www.google.com/jsapi?autoload={
             'modules':[{
               'name':'visualization',
               'version':'1',
@@ -38,7 +60,7 @@
             }]
           }"></script>
 
-    <script type="text/javascript">
+        <script type="text/javascript">
         google.setOnLoadCallback(drawChart);
 
         function drawChart() {
@@ -66,28 +88,7 @@
 
             chart.draw(data, options);
         }
-    </script>
-</head>
-<body>
-    <form action="" method="post">
-        <p>
-            <label for="text1">k1:</label><br>
-            <input type="text" name="text1">
-        </p>
-        <p>
-            <label for="text2">k2:</label><br>
-            <input type="text" name="text2">
-        </p>
-        <p>
-            <label for="text2">x(0):</label><br>
-            <input type="text" name="x0">
-        </p>
-        <p>
-            <label for="text2">b:</label><br>
-            <input type="text" name="x1">
-        </p>
-        <p><input type="submit" value="Compute"></p>
-        <p>@totalMessage</p>
+        </script>
         <div id="curve_chart" style="width: 900px; height: 500px"></div>
     </form>
     
