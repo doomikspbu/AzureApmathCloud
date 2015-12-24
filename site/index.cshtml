@@ -1,27 +1,14 @@
-@{
-    var totalMessage = "";
-    if (IsPost)
-    {
-        var num1 = Request["text1"];
-        var num2 = Request["text2"];
-        var total = num1.AsInt() + num2.AsInt();
-        totalMessage = "Total = " + total;
-    }
-}
-<!DOCTYPE html>
-<html>
-<body style="background-color: beige; font-family: Verdana, Arial;">
-    <form action="" method="post">
-        <p>
-            <label for="text1">First Number:</label><br>
-            <input type="text" name="text1">
-        </p>
-        <p>
-            <label for="text2">Second Number:</label><br>
-            <input type="text" name="text2">
-        </p>
-        <p><input type="submit" value=" Add "></p>
-    </form>
-    <p>@totalMessage</p>
-</body>
-</html>
+<!-- Single statement block  -->
+@Code dim myMessage = "Hello World" End Code
+
+<!-- Inline expression or variable -->
+<p>The value of myMessage is: @myMessage</p>
+
+<!-- Multi-statement block -->
+@Code
+dim greeting = "Welcome to our site!"
+dim weekDay = DateTime.Now.DayOfWeek
+dim greetingMessage = greeting & " Here in Huston it is: " & weekDay
+End Code
+
+<p>The greeting is: @greetingMessage</p>
