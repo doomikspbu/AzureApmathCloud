@@ -4,7 +4,7 @@
 <head>
     @{
         var totalMessage = "";
-        var flag = false;
+        var flag = "0";
         var n = 10000;
         float[] val = new float[n + 1];
         float[] arg = new float[n + 1];
@@ -27,8 +27,8 @@
                 arg[i + 1] = arg[i] + step;
                 val[i + 1] = val[i] + (num1.AsFloat() * step * i + num2.AsFloat() * val[i]) * step;
             }
-            totalMessage = "Successfully! Drawing a graph";
-            //flag = true;
+            totalMessage = "Successfully! Drawing a graph...";
+            flag = "1";
         }
 
     }
@@ -67,7 +67,7 @@
         google.setOnLoadCallback(drawChart);
 
         function drawChart() {
-            if ('@totalMessage' == "Successfully! Drawing a graph") {
+            if ('@flag' == "1") {
                 var N = '@n';
                 var x0 = '@x0';
                 var x1 = '@r2';
@@ -92,10 +92,9 @@
                     curveType: 'function',
                     legend: { position: 'bottom' }
                 };
-
                 var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
                 chart.draw(data, options);
-                '@totalMessage' = "Completed!"
+                '@totalMessage' = "Completed!";
             }
         }
         </script>
