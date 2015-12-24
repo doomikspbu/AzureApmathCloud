@@ -1,26 +1,27 @@
-@{
-    var totalMessage = "";
-    if (IsPost)
-    {
-        var x0 = Request["x0"];
-        var num1 = Request["text1"];
-        var num2 = Request["text2"];
-        var r2 = Request["x1"];
-        var n = 100000;
-        int step = (r2.AsInt() - x0.AsInt())/n;
-        int[] val = new int[n + 1];
-        val[0] = x0.AsInt();
-        for (int i = 0; i < n; ++i)
-        {
-            val[i + 1] = val[i] + (num1.AsInt() * step * i + num2.AsInt() * val[i]) * step;
-        }
-        totalMessage = "Successfully";
-    }
-    
-}
+
 
 <html>
 <head>
+    @{
+        var totalMessage = "";
+        if (IsPost)
+        {
+            var x0 = Request["x0"];
+            var num1 = Request["text1"];
+            var num2 = Request["text2"];
+            var r2 = Request["x1"];
+            var n = 100000;
+            int step = (r2.AsInt() - x0.AsInt()) / n;
+            int[] val = new int[n + 1];
+            val[0] = x0.AsInt();
+            for (int i = 0; i < n; ++i)
+            {
+                val[i + 1] = val[i] + (num1.AsInt() * step * i + num2.AsInt() * val[i]) * step;
+            }
+            totalMessage = "Successfully";
+        }
+
+    }
     <script type="text/javascript"
             src="https://www.google.com/jsapi?autoload={
             'modules':[{
@@ -35,8 +36,8 @@
 
         function drawChart() {
             
-            var x0 = (String)@x0;
-            var x1 = (String)@r1;
+            var x0 = @x0;
+            var x1 = @r1;
             var data = google.visualization.arrayToDataTable([
               ['Year', 'Sales', 'Expenses'],
               [x0, 1000, 400],
