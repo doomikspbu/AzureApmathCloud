@@ -5,6 +5,9 @@
     @{
         var totalMessage = "";
         var n = 100000;
+        int[] val = new int[n + 1];
+        int[] arg = new int[n + 1];
+        arg[0] = 0;
         var num1 = "";
         var num2 = "";
         var r2 = "";
@@ -15,12 +18,11 @@
             num1 = Request["text1"];
             num2 = Request["text2"];
             r2 = Request["x1"];
-            
             int step = (r2.AsInt() - x0.AsInt()) / n;
-            int[] val = new int[n + 1];
             val[0] = x0.AsInt();
             for (int i = 0; i < n; ++i)
             {
+                arg[i + 1] = arg[i] + step;
                 val[i + 1] = val[i] + (num1.AsInt() * step * i + num2.AsInt() * val[i]) * step;
             }
             totalMessage = "Successfully";
@@ -40,7 +42,12 @@
         google.setOnLoadCallback(drawChart);
 
         function drawChart() {
-            var N = '@n'
+            var N = '@n';
+            var V = '@val';
+            var A = '@arg'
+            var x0 = '@x0';
+            var x1 = '@r2';
+            N = arg[0] + arg[1];
             var data = google.visualization.arrayToDataTable([
               ['Year', 'Sales', 'Expenses'],
               [N, 1000, 400],
@@ -50,7 +57,7 @@
             ]);
 
             var options = {
-                title: 'Company Performance',
+                title: 'Solution',
                 curveType: 'function',
                 legend: { position: 'bottom' }
             };
