@@ -5,8 +5,8 @@
     @{
         var totalMessage = "";
         var n = 100000;
-        int[] val = new int[n + 1];
-        int[] arg = new int[n + 1];
+        float[] val = new float[n + 1];
+        float[] arg = new float[n + 1];
         arg[0] = 0;
         var num1 = "";
         var num2 = "";
@@ -18,14 +18,14 @@
             num1 = Request["text1"];
             num2 = Request["text2"];
             r2 = Request["x1"];
-            int step = (r2.AsInt() - x0.AsInt()) / n;
+            float step = (r2.AsInt() - x0.AsInt()) / n;
             val[0] = x0.AsInt();
             for (int i = 0; i < n; ++i)
             {
                 arg[i + 1] = arg[i] + step;
                 val[i + 1] = val[i] + (num1.AsInt() * step * i + num2.AsInt() * val[i]) * step;
             }
-            totalMessage = "Successfully";
+            totalMessage = "Successfully!";
         }
 
     }
