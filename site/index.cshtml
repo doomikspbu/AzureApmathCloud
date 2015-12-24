@@ -69,7 +69,14 @@
             var A = '@arg'
             var x0 = '@x0';
             var x1 = '@r2';
-            N = x0;
+            var Args = [];
+            var Vals = [];
+            var i;
+            @for (int i = 0; i<@n; ++i)
+            {
+                @:Args.push('@arg[i]');
+            }
+            N = Args.length;
             var data = google.visualization.arrayToDataTable([
               ['Year', 'Sales', 'Expenses'],
               [N, 1000, 400],
